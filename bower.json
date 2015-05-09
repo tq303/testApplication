@@ -14,7 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "ember": "1.8.1",
+    "ember": "~1.11.3",
     "bootstrap": "3.3.2",
     "lesshat": "3.0.2"
   }

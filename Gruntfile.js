@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		jshint: {
-			all: ['js/**/*.js'],
+			all: ['server.js', 'js/**/*.js'],
 			options: {
 				ignores : ['js/templates.js'],
 				newcap: false
