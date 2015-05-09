@@ -12,4 +12,6 @@ Requires nodejs and npm, may require sudo dependent on you setup.
 ``` bash
 	npm install
 	grunt build
+	forever stop ./server.js
+	forever start ./server.js
 ```
