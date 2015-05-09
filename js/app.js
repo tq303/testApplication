@@ -8,16 +8,14 @@
 	'use strict';
 
 	/**
-	 * [App creation of Ember application]
+	 * [Creation of Ember application]
 	 */
 	window.App = Ember.Application.create();
 	
 	/**
-	 * API Setup
+	 * [Ember API Setup]
 	 */
-	// prepend api url
-	var api_namespace = 'API/1';
-
+	var api_namespace 			  = 'API/1';
 	window.App.ApplicationAdapter = DS.RESTAdapter.extend({
 		namespace: api_namespace
 	});
@@ -28,5 +26,12 @@
 	window.App.Router.map(function () {
 		this.route('index', { path : '/' });
 	});
+
+	/**
+	 * [Ember Application Logic]
+	 */
+	window.App.IndexRoute      = Ember.Route.extend({});
+	window.App.IndexView       = Ember.View.extend({});
+	window.App.IndexController = Ember.Controller.extend({});
 
 }());
