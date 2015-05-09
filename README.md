@@ -8,7 +8,7 @@ Requires nodejs and npm, may require sudo dependent on you setup.
 	npm install -g forever
 ```
 
-## Build application
+## Build & Run application
 ``` bash
 	npm install
 	grunt build
