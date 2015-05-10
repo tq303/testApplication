@@ -3,9 +3,138 @@
 
 @import "variables.less";
 
+// colors
+@purple-dark:   #8b4c99;
+@gray-dark:     #333333;
+
+@font-face{
+	font-family: 'opensans-light';
+	src: url('../fonts/opensans/OpenSans-Light-webfont.eot');
+	src: url('../fonts/opensans/OpenSans-Light-webfont.eot?iefix') format('eot'), 
+		 url('../fonts/opensans/OpenSans-Light-webfont.woff') format('woff'), 
+		 url('../fonts/opensans/OpenSans-Light-webfont.ttf') format('truetype'), 
+		 url('../fonts/opensans/OpenSans-Light-webfont.svg#webfont') format('svg');
+}
+
+@font-face{
+	font-family: 'opensans-regular';
+	src: url('../fonts/opensans/OpenSans-Regular-webfont.eot');
+	src: url('../fonts/opensans/OpenSans-Regular-webfont.eot?iefix') format('eot'), 
+		 url('../fonts/opensans/OpenSans-Regular-webfont.woff') format('woff'), 
+		 url('../fonts/opensans/OpenSans-Regular-webfont.ttf') format('truetype'), 
+		 url('../fonts/opensans/OpenSans-Regular-webfont.svg#webfont') format('svg');
+	font-weight: normal;
+}
+
+@font-face{
+	font-family: 'opensans-bold';
+	src: url('../fonts/opensans/OpenSans-Bold-webfont.eot');
+	src: url('../fonts/opensans/OpenSans-Bold-webfont.eot?iefix') format('eot'), 
+		 url('../fonts/opensans/OpenSans-Bold-webfont.woff') format('woff'), 
+		 url('../fonts/opensans/OpenSans-Bold-webfont.ttf') format('truetype'), 
+		 url('../fonts/opensans/OpenSans-Bold-webfont.svg#webfont') format('svg');
+	font-weight: bold;
+}
+
 html, body {
 	margin: 0;
 	outline: 0;
 	padding: 0;
-	font-family: Arial, sans-serif;
+	font-family: 'opensans-regular', sans-serif;
+	background: @gray-dark;
+	color: @gray-lighter;
+}
+
+form {
+	padding: 24px;
+
+	& > header {
+		h1 {
+			letter-spacing: 2px;
+		}
+	}
+
+	& > .form-element {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+
+		& > .form-slider {
+			position: relative;
+			width: 300%;
+			.lh-transition(left 0.2s ease);
+
+			&.page-one, &.page-two, &.page-three {
+				.lh-transition(left 0.2s ease);
+			}
+
+			&.page-one {
+				left: 0;
+			}
+
+			&.page-two {
+				left: -100%;
+			}
+
+			&.page-three {
+				left: -200%;
+			}
+
+			.slide-el {
+				width: 33.33333%;
+
+				.pull-left;
+				.clearfix;
+
+				select {
+					&.dob {
+						width: 32.3333%;
+						margin-right: 1.2%;
+						.pull-left;
+
+						&:last-child {
+							margin-right: 0;
+							.pull-right;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	& > .controls {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100px;
+		padding: 34px 24px;
+
+		button {
+			background: @purple-dark;
+			padding: 9px 32px;
+			&.next, &.submit {
+				.pull-right;
+			}
+			&.back {
+				.pull-left;
+			}
+			span {
+				padding-top: 2px;
+			}
+		}
+	}
+}
+
+input[type=text], input[type=email], input[type=password], textarea, select {
+	font-family: 'opensans-regular';
+	height: 50px;
+	padding: 0 20px;
+	border: 1px solid @gray-light;
+	.placeholder(@gray-dark);
+	color: @gray-dark;
+	background: #fff;
+	border-radius: 0;
+	width: 100%;
+	box-shadow: none;
 }

@@ -8833,10 +8833,153 @@ button.close {
     display: none !important;
   }
 }
+@font-face {
+  font-family: 'opensans-light';
+  src: url('../fonts/opensans/OpenSans-Light-webfont.eot');
+  src: url('../fonts/opensans/OpenSans-Light-webfont.eot?iefix') format('eot'), url('../fonts/opensans/OpenSans-Light-webfont.woff') format('woff'), url('../fonts/opensans/OpenSans-Light-webfont.ttf') format('truetype'), url('../fonts/opensans/OpenSans-Light-webfont.svg#webfont') format('svg');
+}
+@font-face {
+  font-family: 'opensans-regular';
+  src: url('../fonts/opensans/OpenSans-Regular-webfont.eot');
+  src: url('../fonts/opensans/OpenSans-Regular-webfont.eot?iefix') format('eot'), url('../fonts/opensans/OpenSans-Regular-webfont.woff') format('woff'), url('../fonts/opensans/OpenSans-Regular-webfont.ttf') format('truetype'), url('../fonts/opensans/OpenSans-Regular-webfont.svg#webfont') format('svg');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'opensans-bold';
+  src: url('../fonts/opensans/OpenSans-Bold-webfont.eot');
+  src: url('../fonts/opensans/OpenSans-Bold-webfont.eot?iefix') format('eot'), url('../fonts/opensans/OpenSans-Bold-webfont.woff') format('woff'), url('../fonts/opensans/OpenSans-Bold-webfont.ttf') format('truetype'), url('../fonts/opensans/OpenSans-Bold-webfont.svg#webfont') format('svg');
+  font-weight: bold;
+}
 html,
 body {
   margin: 0;
   outline: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'opensans-regular', sans-serif;
+  background: #333333;
+  color: #eeeeee;
+}
+form {
+  padding: 24px;
+}
+form > header h1 {
+  letter-spacing: 2px;
+}
+form > .form-element {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+form > .form-element > .form-slider {
+  position: relative;
+  width: 300%;
+  -webkit-transition: left 0.2s ease;
+  -moz-transition: left 0.2s ease;
+  -o-transition: left 0.2s ease;
+  transition: left 0.2s ease;
+}
+form > .form-element > .form-slider.page-one,
+form > .form-element > .form-slider.page-two,
+form > .form-element > .form-slider.page-three {
+  -webkit-transition: left 0.2s ease;
+  -moz-transition: left 0.2s ease;
+  -o-transition: left 0.2s ease;
+  transition: left 0.2s ease;
+}
+form > .form-element > .form-slider.page-one {
+  left: 0;
+}
+form > .form-element > .form-slider.page-two {
+  left: -100%;
+}
+form > .form-element > .form-slider.page-three {
+  left: -200%;
+}
+form > .form-element > .form-slider .slide-el {
+  width: 33.33333%;
+  float: left !important;
+}
+form > .form-element > .form-slider .slide-el:before,
+form > .form-element > .form-slider .slide-el:after {
+  content: " ";
+  display: table;
+}
+form > .form-element > .form-slider .slide-el:after {
+  clear: both;
+}
+form > .form-element > .form-slider .slide-el:before,
+form > .form-element > .form-slider .slide-el:after {
+  content: " ";
+  display: table;
+}
+form > .form-element > .form-slider .slide-el:after {
+  clear: both;
+}
+form > .form-element > .form-slider .slide-el select.dob {
+  width: 32.3333%;
+  margin-right: 1.2%;
+  float: left !important;
+}
+form > .form-element > .form-slider .slide-el select.dob:last-child {
+  margin-right: 0;
+  float: right !important;
+}
+form > .controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  padding: 34px 24px;
+}
+form > .controls button {
+  background: #8b4c99;
+  padding: 9px 32px;
+}
+form > .controls button.next,
+form > .controls button.submit {
+  float: right !important;
+}
+form > .controls button.back {
+  float: left !important;
+}
+form > .controls button span {
+  padding-top: 2px;
+}
+input[type=text],
+input[type=email],
+input[type=password],
+textarea,
+select {
+  font-family: 'opensans-regular';
+  height: 50px;
+  padding: 0 20px;
+  border: 1px solid #999999;
+  color: #333333;
+  background: #fff;
+  border-radius: 0;
+  width: 100%;
+  box-shadow: none;
+}
+input[type=text]::-moz-placeholder,
+input[type=email]::-moz-placeholder,
+input[type=password]::-moz-placeholder,
+textarea::-moz-placeholder,
+select::-moz-placeholder {
+  color: #333333;
+  opacity: 1;
+}
+input[type=text]:-ms-input-placeholder,
+input[type=email]:-ms-input-placeholder,
+input[type=password]:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+select:-ms-input-placeholder {
+  color: #333333;
+}
+input[type=text]::-webkit-input-placeholder,
+input[type=email]::-webkit-input-placeholder,
+input[type=password]::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+select::-webkit-input-placeholder {
+  color: #333333;
 }

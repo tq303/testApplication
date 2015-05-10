@@ -1,1 +1,84 @@
-<h1>Hello world</h1>
+<form {{action "SubmitForm" on="submit"}}>
+
+	<header>
+		<h1>Test Application</h1>
+	</header>
+
+	<div class="form-element">
+		
+		<div {{bind-attr class=":form-slider SlidePosition"}}>
+				
+			<div class="slide-el">
+				<label>Title</label>
+				{{view select content=title_options required=true prompt="Please select a title"}}
+
+				<label>Name</label>
+				{{input type="text" placeholder="Name" required=true}}
+
+				<label>DOB</label>
+				<div>
+					{{view select
+						content=days
+						value=dob_day
+						class="dob"
+						required=true
+					}}
+					{{view select
+						content=months
+						value=dob_month
+						optionValuePath="content.value"
+						optionLabelPath="content.month"
+						class="dob"
+						required=true
+					}}
+					{{view select
+						content=years
+						value=dob_year
+						class="dob"
+						required=true
+					}}
+				</div>
+			</div>
+
+			<div class="slide-el">
+				<label>Location</label>
+				{{input type="text" value=current_location placeholder="Location" required=true}}
+
+				<label>Current Date/Time</label>
+				{{GetDateTime}}
+			</div>
+
+			<div class="slide-el">
+				{{input type="text" placeholder="Full name" required=true}}
+
+				{{input type="text" placeholder="Full name" required=true}}
+			</div>
+
+		</div>
+	
+	</div>
+
+	<div class="controls">
+	
+		{{#if HasBackOption}}		
+			<button role="button" class="btn back" {{action "GotoPreviousPage"}}>
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				Back
+			</button>
+		{{/if}}
+
+		{{#if IsLastPage}}
+			<button role="submit" class="btn submit">
+				Submit
+				<span class="glyphicon glyphicon-ok"></span>
+			</button>
+		{{else}}
+			<button role="button" class="btn next" {{action "GotoNextPage"}}>
+				Next
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</button>
+		{{/if}}
+
+	</div>
+
+</form>
