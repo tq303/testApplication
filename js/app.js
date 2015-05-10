@@ -178,6 +178,14 @@ var ts = ts || function () {};
 				};
 
 				window.console.log(form_json);
+
+				// save survey to server
+				var survey = this.store.createRecord('survey', form_json);
+				survey.save().then(function () {
+					window.bootbox.alert('Thank you for submitting your survey');
+				}, function () {
+					window.bootbox.alert('There was an error saving your survey');
+				});
 			}
 		},
 	});

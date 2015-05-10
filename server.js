@@ -10,19 +10,40 @@
 		express    = require('express'),
 		path       = require('path'),
 		mkdirp	   = require('mkdirp'),
-		winston    = require('winston');
+		winston    = require('winston'),
+		request    = require('request');
 
 	/**
 	 * [Express Setup]
 	 */
 	var app  = express(),
-		port = process.argv[2] || 9015;
+		port = process.argv[2] || 9015,
+		putsreq = 'https://putsreq.com/oAzae0r1TNdeN0h2hnFf';
 
 	app.use(express.static(path.normalize(__dirname)));
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({
 		extended: true,
 	}));
+
+	/**
+	 * [Retrieves survey object ready for saving]
+	 */
+	app.post('/API/1/surveys', function (req, res) {
+		// before returning object first send it to putsreq
+		request({
+			url: putsreq,
+			method: 'POST',
+			form: req.body.survey,
+			json: true
+		}, function(error, response, body) {
+
+			res.send({
+				'survey': req.body.survey
+			});
+
+		});
+	});
 
 	/**
 	 * [Setup logging]
