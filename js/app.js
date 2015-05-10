@@ -52,7 +52,10 @@ var ts = ts || function () {};
 
 		// form content
 		title_options: ['Mr', 'Mrs', 'Ms', 'Miss'],
-		dob_day:   null,
+		title: 'Mr',
+		users_name: '',
+		feedback: '',
+		dob_day:   1,
 		dob_month: null,
 		dob_year:  null,
 		days: null,
@@ -71,6 +74,8 @@ var ts = ts || function () {};
 			{'value':12, 'month': 'dec'}
 		],
 		years: null,
+
+		// DOB logic
 		GetDays: function () {
 			var days = [],
 				total_days = 31,
@@ -102,33 +107,12 @@ var ts = ts || function () {};
 			return this.set('years', years);
 		}.property(),
 
-		// current data
+		// current location and date/time data
 		current_location: '',
 		GetDateTime: function () {
 			var date = new Date();
-			return (date.toString());
+			return (date.toDateString() + ' : ' + date.toTimeString());
 		}.property(),
-
-		// application actions
-		actions: {
-			GotoNextPage: function () {
-				if (this.get('current_page') === this.get('max_page'))
-					return;
-
-				var page = this.get('current_page');
-				this.set('current_page', (this.get('current_page') + 1));
-			},
-			GotoPreviousPage: function () {
-				if (this.get('current_page') === this.get('min_page'))
-					return;
-
-				var page = this.get('current_page');
-				this.set('current_page', (this.get('current_page') - 1));
-			},
-			SubmitForm: function () {
-				window.console.log('ere');
-			}
-		},
 
 		// page navigation logic
 		HasBackOption: function () {
@@ -148,7 +132,54 @@ var ts = ts || function () {};
 				case 3:
 					return 'page-three';
 			};
-		}.property('current_page')
+		}.property('current_page'),
+
+		// simple page validation
+		PageValidated: function () {
+			if (this.get('users_name') === '' && this.get('current_page') === 1) {
+				window.bootbox.alert('Please provide a name');
+				return false;
+			}
+			if (this.get('current_location') === '' && this.get('current_page') === 2) {
+				window.bootbox.alert('Please provide a location');
+				return false;
+			}
+			if (this.get('feedback') === '' && this.get('current_page') === 3) {
+				window.bootbox.alert('Please provide feedback');
+				return false;
+			}
+			return true;
+		},
+
+		// application actions
+		actions: {
+			GotoNextPage: function () {
+				if (this.get('current_page') === this.get('max_page') || !this.PageValidated())
+					return;
+
+				this.set('current_page', (this.get('current_page') + 1));
+			},
+			GotoPreviousPage: function () {
+				if (this.get('current_page') === this.get('min_page') || !this.PageValidated())
+					return;
+
+				this.set('current_page', (this.get('current_page') - 1));
+			},
+			SubmitForm: function () {
+				if (!this.PageValidated())
+					return;
+
+				var form_json = {
+					'title': this.get('title'),
+					'name': this.get('users_name'),
+					'dob': this.get('dob_day') + '-' + this.get('dob_month') + '-' + this.get('dob_year'),
+					'location': this.get('current_location'),
+					'feedback': this.get('feedback')
+				};
+
+				window.console.log(form_json);
+			}
+		},
 	});
 	
 	/**
@@ -182,7 +213,7 @@ var ts = ts || function () {};
 	 * @return {[type]}            [description]
 	 */
 	ts.getGeoLocation = function (position, callback) {
-		$.ajax({
+		Ember.$.ajax({
 			type: "GET",
 			url: 'http://maps.googleapis.com/maps/api/geocode/json?address=' + position.coords.latitude + ',' + position.coords.longitude,
 			dataType: "json"

@@ -41,8 +41,8 @@ html, body {
 	outline: 0;
 	padding: 0;
 	font-family: 'opensans-regular', sans-serif;
-	background: @gray-dark;
-	color: @gray-lighter;
+	background: @gray-lighter;
+	color: @gray-dark;
 }
 
 form {
@@ -86,6 +86,10 @@ form {
 				.pull-left;
 				.clearfix;
 
+				label {
+					margin-top: 6px;
+				}
+
 				select {
 					&.dob {
 						width: 32.3333%;
@@ -98,6 +102,12 @@ form {
 						}
 					}
 				}
+
+				textarea {
+					height: 100%;
+					padding: 12px;
+				}
+
 			}
 		}
 	}
@@ -111,13 +121,16 @@ form {
 		padding: 34px 24px;
 
 		button {
-			background: @purple-dark;
+			background: @gray-light;
 			padding: 9px 32px;
 			&.next, &.submit {
 				.pull-right;
 			}
 			&.back {
 				.pull-left;
+			}
+			&.submit {
+				background: @brand-success;
 			}
 			span {
 				padding-top: 2px;
@@ -131,7 +144,7 @@ input[type=text], input[type=email], input[type=password], textarea, select {
 	height: 50px;
 	padding: 0 20px;
 	border: 1px solid @gray-light;
-	.placeholder(@gray-dark);
+	.placeholder(@gray-light);
 	color: @gray-dark;
 	background: #fff;
 	border-radius: 0;

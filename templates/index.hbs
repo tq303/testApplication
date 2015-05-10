@@ -10,10 +10,10 @@
 				
 			<div class="slide-el">
 				<label>Title</label>
-				{{view select content=title_options required=true prompt="Please select a title"}}
+				{{view select value=title content=title_options required=true}}
 
 				<label>Name</label>
-				{{input type="text" placeholder="Name" required=true}}
+				{{input type="text" value=users_name placeholder="Name" required=true}}
 
 				<label>DOB</label>
 				<div>
@@ -45,13 +45,12 @@
 				{{input type="text" value=current_location placeholder="Location" required=true}}
 
 				<label>Current Date/Time</label>
-				{{GetDateTime}}
+				<div>{{GetDateTime}}</div>
 			</div>
 
 			<div class="slide-el">
-				{{input type="text" placeholder="Full name" required=true}}
-
-				{{input type="text" placeholder="Full name" required=true}}
+				<label>Feedback</label>
+				{{textarea value=feedback cols="80" rows="6"}}
 			</div>
 
 		</div>
