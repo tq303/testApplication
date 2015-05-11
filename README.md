@@ -1,7 +1,7 @@
 # Test Application
 
 ### Prerequisites
-Requires nodejs and npm, may require sudo dependent on you setup.
+Requires nodejs and npm, may require sudo dependent on your setup.
 ``` bash
 	npm install -g grunt
 	npm install -g bower
