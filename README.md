@@ -1,6 +1,6 @@
 # Test Application
 
-## Prerequisites
+### Prerequisites
 Requires nodejs and npm, may require sudo dependent on you setup.
 ``` bash
 	npm install -g grunt
@@ -10,7 +10,7 @@ Requires nodejs and npm, may require sudo dependent on you setup.
 	npm install -g yuidocjs
 ```
 
-## Build & Run application
+### Build & Run application
 ``` bash
 	npm install
 	grunt build
