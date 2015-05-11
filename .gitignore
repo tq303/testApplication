@@ -4,3 +4,4 @@ logs
 node_modules
 lib
 js/templates.js
+npm-debug.log
