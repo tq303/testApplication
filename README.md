@@ -26,7 +26,7 @@ The application is listening on port 9015
 # Documentation
 To build documentation for the application run the following command, documentation resides in the `./js/docs/index.html` and `./server/docs/index.html` folder.
 ``` bash
-	npm run docs
+	npm run build-docs
 ```
 # Cordova
 
