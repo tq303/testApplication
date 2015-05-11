@@ -135,7 +135,7 @@ var ts = ts || function () {};
 					return 'page-two';
 				case 3:
 					return 'page-three';
-			};
+			}
 		}.property('current_page'),
 
 		// simple page validation

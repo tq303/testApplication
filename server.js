@@ -27,8 +27,7 @@
 	}));
 
 	/**
-	 * @module  Express
-	 * @method  [Retrieves survey object ready for saving]
+	 * Retrieves survey object ready for saving
 	 */
 	app.post('/API/1/surveys', function (req, res) {
 		// before returning object first send it to putsreq
@@ -47,8 +46,8 @@
 	});
 
 	/**
+	 * JSON logging library
 	 * @module  Winston
-	 * @method [Setup logging]
 	 */
 	mkdirp('./logs', function (err) {
 

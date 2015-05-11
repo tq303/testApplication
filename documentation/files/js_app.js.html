@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>js/app.js - Mubaloo Test Application</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="Mubaloo Test Application" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Survey.html">Survey</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Ember.html">Ember</a></li>
+                                <li><a href="../modules/Express.html">Express</a></li>
+                                <li><a href="../modules/Winston.html">Winston</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: js/app.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/*global jQuery: true */
+/*global Ember: true */
+/*global window: true */
+/*global Handlebars: true */
+
+var ts = ts || function () {};
+
+(function (ts) {
+
+	&#x27;use strict&#x27;;
+
+	/**
+	 * Creation of Ember application
+	 * @module Ember
+	 */
+	window.App = Ember.Application.create();
+	
+	/**
+	 * Ember API Setup
+	 * @module Ember
+	 */
+	var api_namespace 			  = &#x27;API/1&#x27;;
+	window.App.ApplicationAdapter = DS.RESTAdapter.extend({
+		namespace: api_namespace
+	});
+
+	/**
+	 * Ember route setup
+	 * @module Ember
+	 */
+	window.App.Router.map(function () {
+		this.route(&#x27;index&#x27;, { path : &#x27;/&#x27; });
+	});
+
+	/**
+	 * Ember Application Logic
+	 * @module Ember
+	 */
+	window.App.IndexRoute      = Ember.Route.extend({
+		setupController: function (controller, model) {
+			controller.get(&#x27;GetYears&#x27;);
+
+			// get location of user
+			ts.geolocation(function (data, position) {
+				controller.set(&#x27;current_location&#x27;, data.results[0].address_components[2].short_name);
+			});
+		}
+	});
+	window.App.IndexView       = Ember.View.extend({});
+	window.App.IndexController = Ember.Controller.extend({
+
+		// page vairables
+		current_page: 1,
+		max_page: 3,
+		min_page: 1,
+
+		// form content
+		title_options: [&#x27;Mr&#x27;, &#x27;Mrs&#x27;, &#x27;Ms&#x27;, &#x27;Miss&#x27;],
+		title: &#x27;Mr&#x27;,
+		users_name: &#x27;&#x27;,
+		feedback: &#x27;&#x27;,
+		dob_day:   1,
+		dob_month: null,
+		dob_year:  null,
+		days: null,
+		months: [
+			{&#x27;value&#x27;:1,  &#x27;month&#x27;: &#x27;jan&#x27;},
+			{&#x27;value&#x27;:2,  &#x27;month&#x27;: &#x27;feb&#x27;},
+			{&#x27;value&#x27;:3,  &#x27;month&#x27;: &#x27;mar&#x27;},
+			{&#x27;value&#x27;:4,  &#x27;month&#x27;: &#x27;apr&#x27;},
+			{&#x27;value&#x27;:5,  &#x27;month&#x27;: &#x27;may&#x27;},
+			{&#x27;value&#x27;:6,  &#x27;month&#x27;: &#x27;jun&#x27;},
+			{&#x27;value&#x27;:7,  &#x27;month&#x27;: &#x27;jul&#x27;},
+			{&#x27;value&#x27;:8,  &#x27;month&#x27;: &#x27;aug&#x27;},
+			{&#x27;value&#x27;:9,  &#x27;month&#x27;: &#x27;sep&#x27;},
+			{&#x27;value&#x27;:10, &#x27;month&#x27;: &#x27;oct&#x27;},
+			{&#x27;value&#x27;:11, &#x27;month&#x27;: &#x27;nov&#x27;},
+			{&#x27;value&#x27;:12, &#x27;month&#x27;: &#x27;dec&#x27;}
+		],
+		years: null,
+
+		// DOB logic
+		GetDays: function () {
+			var days = [],
+				total_days = 31,
+				thirty_days = [4,6,9,11],
+				twentynine_days = [2],
+				i;
+
+			// set &amp;&amp; limit days
+			if (thirty_days.indexOf(this.get(&#x27;dob_month&#x27;)) &gt;= 0)
+				total_days = 30;
+
+			if (twentynine_days.indexOf(this.get(&#x27;dob_month&#x27;)) &gt;= 0)
+				total_days = 29;
+
+			for (i = 1; i &lt;= total_days; i++)
+				days.push(i);
+
+			return this.set(&#x27;days&#x27;, days);
+		}.observes(&#x27;dob_month&#x27;),
+
+		GetYears: function () {
+			var years = [],
+				current_year = (new Date().getFullYear()),
+				i;
+
+			for (i = current_year; i &gt;= 1940; i--)
+				years.push(i);
+
+			return this.set(&#x27;years&#x27;, years);
+		}.property(),
+
+		// current location and date/time data
+		current_location: &#x27;&#x27;,
+		GetDateTime: function () {
+			var date = new Date();
+			return (date.toDateString() + &#x27; : &#x27; + date.toTimeString());
+		}.property(),
+
+		// page navigation logic
+		HasBackOption: function () {
+			return (this.get(&#x27;current_page&#x27;) &gt; 1);
+		}.property(&#x27;current_page&#x27;),
+
+		IsLastPage: function () {
+			return (this.get(&#x27;current_page&#x27;) === this.get(&#x27;max_page&#x27;));
+		}.property(&#x27;current_page&#x27;),
+
+		SlidePosition: function () {
+			switch (this.get(&#x27;current_page&#x27;)) {
+				case 1:
+					return &#x27;page-one&#x27;;
+				case 2:
+					return &#x27;page-two&#x27;;
+				case 3:
+					return &#x27;page-three&#x27;;
+			}
+		}.property(&#x27;current_page&#x27;),
+
+		// simple page validation
+		PageValidated: function () {
+			if (this.get(&#x27;users_name&#x27;) === &#x27;&#x27; &amp;&amp; this.get(&#x27;current_page&#x27;) === 1) {
+				window.bootbox.alert(&#x27;Please provide a name&#x27;);
+				return false;
+			}
+			if (this.get(&#x27;current_location&#x27;) === &#x27;&#x27; &amp;&amp; this.get(&#x27;current_page&#x27;) === 2) {
+				window.bootbox.alert(&#x27;Please provide a location&#x27;);
+				return false;
+			}
+			if (this.get(&#x27;feedback&#x27;) === &#x27;&#x27; &amp;&amp; this.get(&#x27;current_page&#x27;) === 3) {
+				window.bootbox.alert(&#x27;Please provide feedback&#x27;);
+				return false;
+			}
+			return true;
+		},
+
+		// application actions
+		actions: {
+			GotoNextPage: function () {
+				if (this.get(&#x27;current_page&#x27;) === this.get(&#x27;max_page&#x27;) || !this.PageValidated())
+					return;
+
+				this.set(&#x27;current_page&#x27;, (this.get(&#x27;current_page&#x27;) + 1));
+			},
+			GotoPreviousPage: function () {
+				if (this.get(&#x27;current_page&#x27;) === this.get(&#x27;min_page&#x27;) || !this.PageValidated())
+					return;
+
+				this.set(&#x27;current_page&#x27;, (this.get(&#x27;current_page&#x27;) - 1));
+			},
+			SubmitForm: function () {
+				if (!this.PageValidated())
+					return;
+
+				var form_json = {
+					&#x27;title&#x27;: this.get(&#x27;title&#x27;),
+					&#x27;name&#x27;: this.get(&#x27;users_name&#x27;),
+					&#x27;dob&#x27;: this.get(&#x27;dob_day&#x27;) + &#x27;-&#x27; + this.get(&#x27;dob_month&#x27;) + &#x27;-&#x27; + this.get(&#x27;dob_year&#x27;),
+					&#x27;location&#x27;: this.get(&#x27;current_location&#x27;),
+					&#x27;feedback&#x27;: this.get(&#x27;feedback&#x27;)
+				};
+
+				window.console.log(form_json);
+
+				// save survey to server
+				var survey = this.store.createRecord(&#x27;survey&#x27;, form_json);
+				survey.save().then(function () {
+					window.bootbox.alert(&#x27;Thank you for submitting your survey&#x27;);
+				}, function () {
+					window.bootbox.alert(&#x27;There was an error saving your survey&#x27;);
+				});
+			}
+		},
+	});
+	
+	
+	/**
+	 * @method ts.geolocation uses native geolocation API of browser
+	 * @param  {Function} callback [description]
+	 */
+	ts.geolocation = function (callback) {
+
+		if (typeof callback !== &#x27;function&#x27;)
+			throw new Error(&#x27;geolocation requires a callback function&#x27;);
+
+		if(navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				ts.getGeoLocation(position, callback);
+			}, function(e) {
+				ts.handleNoGeolocation(e);
+			},{
+				timeout: 5000
+			});
+		}
+	};
+
+	/**
+	 * @method ts.getGeoLocation AJAX call to retrieve data
+	 * @param  {Object} position
+	 * @param  {Function} callback
+	 */
+	ts.getGeoLocation = function (position, callback) {
+		Ember.$.ajax({
+			type: &quot;GET&quot;,
+			url: &#x27;http://maps.googleapis.com/maps/api/geocode/json?address=&#x27; + position.coords.latitude + &#x27;,&#x27; + position.coords.longitude,
+			dataType: &quot;json&quot;
+		})
+		.done(function(data) {
+			callback(data, position);
+		});
+	};
+
+	/**
+	 * @method  ts.handleNoGeolocation handles error if browser doesn&#x27;t support geolocation
+	 * @param  {Object} event
+	 */
+	ts.handleNoGeolocation = function (event) {
+		window.console.log(&#x27;browser doesn\&#x27;t support geolocation&#x27;, event);
+	};
+
+}(ts));
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

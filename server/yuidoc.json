@@ -1,8 +1,0 @@
-{
-    "name": "Mubaloo Test Application",
-    "description": "Oliver White, Test Application",
-    "version": "1",
-    "options": {
-        "outdir": "./docs"
-    }
-}

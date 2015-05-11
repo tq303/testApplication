@@ -24,7 +24,7 @@ The application is listening on port 9015
 ```
 
 # Documentation
-To build documentation for the application run the following command, documentation resides in the `./js/docs/index.html` and `./server/docs/index.html` folder.
+To build documentation for the application run the following command, documentation resides in the `documentation` folder.
 ``` bash
 	npm run build-docs
 ```
@@ -33,11 +33,11 @@ To build documentation for the application run the following command, documentat
 ### Create application
 First create application definition.
 ```bash
-	cordova create testApp com.test.application TestApplication &&
+	cordova create testApp com.test.application TestApplication
 ```
 
 ### Add Platforms
-This is dependent on what platform you are running and which SDK's you have installed, or are requires to build, add the relevant command from below
+This is dependent on what platform you are running and which SDK's you have installed, or are required to build, run the relevant command from below
 ``` bash
 	cordova platform add ios
     cordova platform add amazon-fireos

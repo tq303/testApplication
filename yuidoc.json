@@ -3,6 +3,7 @@
     "description": "Oliver White, Test Application",
     "version": "1",
     "options": {
-        "outdir": "./docs"
+        "outdir": "./documentation",
+    	"exclude": "lib, node_modules"
     }
 }

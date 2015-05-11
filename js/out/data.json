@@ -1,0 +1,106 @@
+{
+    "project": {},
+    "files": {
+        "models/survey.js": {
+            "name": "models/survey.js",
+            "modules": {},
+            "classes": {
+                "Survey": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "app.js": {
+            "name": "app.js",
+            "modules": {
+                "Ember": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Ember": {
+            "name": "Ember",
+            "submodules": {},
+            "classes": {
+                "Survey": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "models/survey.js",
+            "line": 7,
+            "description": "Creation of Ember application"
+        }
+    },
+    "classes": {
+        "Survey": {
+            "name": "Survey",
+            "shortname": "Survey",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Ember",
+            "file": "models/survey.js",
+            "line": 7,
+            "is_constructor": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "app.js",
+            "line": 198,
+            "itemtype": "method",
+            "name": "ts.geolocation uses native geolocation API of browser",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "[description]",
+                    "type": "Function"
+                }
+            ],
+            "class": "",
+            "module": "Ember"
+        },
+        {
+            "file": "app.js",
+            "line": 218,
+            "itemtype": "method",
+            "name": "ts.getGeoLocation AJAX call to retrieve data",
+            "params": [
+                {
+                    "name": "position",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "",
+            "module": "Ember"
+        },
+        {
+            "file": "app.js",
+            "line": 234,
+            "itemtype": "method",
+            "name": "ts.handleNoGeolocation handles error if browser doesn't support geolocation",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "",
+            "module": "Ember"
+        }
+    ],
+    "warnings": []
+}

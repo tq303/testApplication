@@ -1,0 +1,150 @@
+{
+    "project": {
+        "name": "Mubaloo Test Application",
+        "description": "Oliver White, Test Application",
+        "version": "1"
+    },
+    "files": {
+        "js/models/survey.js": {
+            "name": "js/models/survey.js",
+            "modules": {},
+            "classes": {
+                "Survey": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js/app.js": {
+            "name": "js/app.js",
+            "modules": {
+                "Ember": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "server.js": {
+            "name": "server.js",
+            "modules": {
+                "Express": 1,
+                "Winston": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Ember": {
+            "name": "Ember",
+            "submodules": {},
+            "classes": {
+                "Survey": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "js/models/survey.js",
+            "line": 7,
+            "description": "Creation of Ember application"
+        },
+        "Express": {
+            "name": "Express",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "server.js",
+            "line": 16
+        },
+        "Winston": {
+            "name": "Winston",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "server.js",
+            "line": 49,
+            "description": "JSON logging library"
+        }
+    },
+    "classes": {
+        "Survey": {
+            "name": "Survey",
+            "shortname": "Survey",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Ember",
+            "file": "js/models/survey.js",
+            "line": 7,
+            "is_constructor": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "js/app.js",
+            "line": 198,
+            "itemtype": "method",
+            "name": "ts.geolocation uses native geolocation API of browser",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "[description]",
+                    "type": "Function"
+                }
+            ],
+            "class": "",
+            "module": "Ember"
+        },
+        {
+            "file": "js/app.js",
+            "line": 218,
+            "itemtype": "method",
+            "name": "ts.getGeoLocation AJAX call to retrieve data",
+            "params": [
+                {
+                    "name": "position",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "",
+            "module": "Ember"
+        },
+        {
+            "file": "js/app.js",
+            "line": 234,
+            "itemtype": "method",
+            "name": "ts.handleNoGeolocation handles error if browser doesn't support geolocation",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "",
+            "module": "Ember"
+        },
+        {
+            "file": "server.js",
+            "line": 29,
+            "description": "Retrieves survey object ready for saving",
+            "itemtype": "method",
+            "name": "post",
+            "class": "",
+            "module": "Express"
+        }
+    ],
+    "warnings": []
+}
