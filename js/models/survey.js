@@ -1,12 +1,13 @@
 /*global DS: true */
 /*global window: true */
 
-/**
- * [Survey model for saving to server]
- */
 (function () {
 	'use strict';
 
+	/**
+	 * @class Survey
+	 * @constructor  [Ember-data Model]
+	 */
 	window.App.Survey = DS.Model.extend({
 		title: 	  DS.attr('string'),
 		name: 	  DS.attr('string'),

@@ -14,7 +14,7 @@
 		request    = require('request');
 
 	/**
-	 * [Express Setup]
+	 * @module  Express
 	 */
 	var app  = express(),
 		port = process.argv[2] || 9015,
@@ -27,7 +27,8 @@
 	}));
 
 	/**
-	 * [Retrieves survey object ready for saving]
+	 * @module  Express
+	 * @method  [Retrieves survey object ready for saving]
 	 */
 	app.post('/API/1/surveys', function (req, res) {
 		// before returning object first send it to putsreq
@@ -46,7 +47,8 @@
 	});
 
 	/**
-	 * [Setup logging]
+	 * @module  Winston
+	 * @method [Setup logging]
 	 */
 	mkdirp('./logs', function (err) {
 

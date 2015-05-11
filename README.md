@@ -7,6 +7,7 @@ Requires nodejs and npm, may require sudo dependent on you setup.
 	npm install -g bower
 	npm install -g forever
 	npm install -g cordova
+	npm install -g yuidocjs
 ```
 
 ## Build & Run application
@@ -22,10 +23,21 @@ The application is listening on port 9015
 	http://localhost:9015
 ```
 
-## Cordova
-## Prerequisites
+# Documentation
+To build documentation for the application run the following command, documentation resides in the `./docs/index.html` folder.
+``` bash
+	npm run docs
+```
+# Cordova
 
-Dependent on what platform you are running and which SDK's you have installed, or is requires to build, add the relevant command from below
+### Create application
+First create application definition.
+```bash
+	cordova create testApp com.test.application TestApplication &&
+```
+
+### Add Platforms
+This is dependent on what platform you are running and which SDK's you have installed, or are requires to build, add the relevant command from below
 ``` bash
 	cordova platform add ios
     cordova platform add amazon-fireos
@@ -34,8 +46,7 @@ Dependent on what platform you are running and which SDK's you have installed, o
     cordova platform add firefoxos
 ```
 
-### Create application
-```bash
-	cordova create testApp com.test.application TestApplication &&
+### Build Cordova applications
+``` bash
 	cordova build
 ```

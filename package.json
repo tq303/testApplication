@@ -2,11 +2,11 @@
   "name": "testApplication",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "./server/server.js",
   "author": "",
   "license": "ISC",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-docs": "cd ./server/ && yuidoc . && cd ../js/ && yuidoc ."
   },
   "devDependencies": {
     "bower": "^1.3.12",

@@ -10,12 +10,14 @@ var ts = ts || function () {};
 	'use strict';
 
 	/**
-	 * [Creation of Ember application]
+	 * Creation of Ember application
+	 * @module Ember
 	 */
 	window.App = Ember.Application.create();
 	
 	/**
-	 * [Ember API Setup]
+	 * Ember API Setup
+	 * @module Ember
 	 */
 	var api_namespace 			  = 'API/1';
 	window.App.ApplicationAdapter = DS.RESTAdapter.extend({
@@ -23,14 +25,16 @@ var ts = ts || function () {};
 	});
 
 	/**
-	 * [Ember route setup]
+	 * Ember route setup
+	 * @module Ember
 	 */
 	window.App.Router.map(function () {
 		this.route('index', { path : '/' });
 	});
 
 	/**
-	 * [Ember Application Logic]
+	 * Ember Application Logic
+	 * @module Ember
 	 */
 	window.App.IndexRoute      = Ember.Route.extend({
 		setupController: function (controller, model) {
@@ -190,13 +194,10 @@ var ts = ts || function () {};
 		},
 	});
 	
+	
 	/**
-	 * Navigation
-	 */
-	/**
-	 * [geolocation uses native geolocation API of browser]
+	 * @method ts.geolocation uses native geolocation API of browser
 	 * @param  {Function} callback [description]
-	 * @return {[type]}            [description]
 	 */
 	ts.geolocation = function (callback) {
 
@@ -215,10 +216,9 @@ var ts = ts || function () {};
 	};
 
 	/**
-	 * [getGeoLocation AJAX call to retrieve data]
-	 * @param  {[type]}   position [description]
-	 * @param  {Function} callback [description]
-	 * @return {[type]}            [description]
+	 * @method ts.getGeoLocation AJAX call to retrieve data
+	 * @param  {Object} position
+	 * @param  {Function} callback
 	 */
 	ts.getGeoLocation = function (position, callback) {
 		Ember.$.ajax({
@@ -231,6 +231,10 @@ var ts = ts || function () {};
 		});
 	};
 
+	/**
+	 * @method  ts.handleNoGeolocation handles error if browser doesn't support geolocation
+	 * @param  {Object} event
+	 */
 	ts.handleNoGeolocation = function (event) {
 		window.console.log('browser doesn\'t support geolocation', event);
 	};
